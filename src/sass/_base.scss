@@ -23,6 +23,7 @@ body {
   overflow-x: hidden;
   background-color: $c-white;  
 }
+
 html,
 body,
 .container {
@@ -55,7 +56,6 @@ li {
 }
 
 main {
-  background-color: $c-dark-grey;
   height: 100%;
   min-height: 100vh;
   display: flex;

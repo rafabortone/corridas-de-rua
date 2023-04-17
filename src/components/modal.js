@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from '../context/AppContext';
 import IconClose from '../icons/icon-close.svg'
-import Trail from "./trail";
 
 
 export default function Modal() {
@@ -24,7 +23,6 @@ export default function Modal() {
                 id="dialog1_close"
               />
             </div>
-            <Trail/>
           </div>
         </div> : null
       }

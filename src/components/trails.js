@@ -3,18 +3,56 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
+import {useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 export default function Trails() {
+  const navigate = useNavigate();
   const {
     trailsList,
     setTrailsList,
-    setModalVisible,
     setTrail,
-    setGrade
   } = useContext(AppContext);
 
-  const url = 'https://60e2ee6f9103bd0017b47673.mockapi.io/api/v1/trails/';
+
+  const corridas = [
+    {
+      nome: 'Corrida rua XV',
+      data: '25/04',
+      distancia: '5km',
+      rua: 'Rua xv de novembro 62',
+      bairro: 'Centro',
+      cidade: 'Curitiba',
+      estado: 'PR',
+      referencia: 'Boca maldita',
+      imagem: 'https://live.staticflickr.com/8660/16704676381_644f5e0b39_b.jpg',
+      horario:'14:00hrs'
+    },
+    {
+      nome: 'Maratona 20km',
+      data: '02/05',
+      distancia: '20km',
+      rua: 'Rua brigadeiro franco 559',
+      bairro: 'Centro',
+      cidade: 'Curitiba',
+      estado: 'PR',
+      referencia: 'Em frente ao Atacadao',
+      imagem: 'https://sportlife.com.br/wp-content/uploads/2014/07/calendario-corridas-agosto-Shutterstock_Images.jpg',
+      horario:'15:00hrs'
+    },
+    {
+      nome: 'Maratona Jardim Botanico',
+      data: '02/05',
+      distancia: '7km',
+      rua: 'Rua jose ficticio 6557',
+      bairro: 'Jardim Botanico',
+      cidade: 'Curitiba',
+      estado: 'PR',
+      referencia: 'Jardim Botanico',
+      imagem: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Jardim_Bot%C3%A2nico_Centro_Curitiba.jpg/1200px-Jardim_Bot%C3%A2nico_Centro_Curitiba.jpg',
+      horario:'11:00hrs'
+    }
+  ]
 
   var settings = {
     dots: true,
@@ -48,40 +86,19 @@ export default function Trails() {
   useEffect(() => {
     
     async function getTrails() {
-      const response = await fetch(url );
-      const data = await response.json();
-      
-      if(response.status === 200) {
-        setTrailsList(data);
-      } else {
-        console.log(response);
-      }
+      setTrailsList(corridas);
     }
 
     getTrails();
 
   }, [setTrailsList]);
 
-  async function handleOpenModal(trail) {
-    const grade = trail.grade[0]
+  async function handleOpenDetails(trail) {
 
-    const response = await fetch(url + grade.trailId + '/trails-grade/' + grade.id + '/courses');
-    const data = await response.json();
+    setTrail(trail);
 
-    if(response.status === 200) {
-      setGrade(data);
-      setTrail(trail);
-      setModalVisible(true);
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Ocorreu um erro inesperado, por favor tente mais tarde',
-      })
-      console.log(response);
-    }
-      
-
+    navigate('/corrida-details', {replace: true});
+  
   };
 
   return (
@@ -89,22 +106,22 @@ export default function Trails() {
     {trailsList.length > 0 ?
       <ul className="trails__list" data-testid="trails-list">
         <Slider {...settings}>
-          {trailsList.map(trail => {
+          {trailsList.map(corrida => {
             return (
-              <li className="trails__item" key={trail.id}>
+              <li className="trails__item" key={corrida.id}>
                 <figure className="trails__item--image">
-                  <img src={trail.image} alt="trail background"/>
+                  <img src={corrida.imagem} alt="trail background"/>
                 </figure>
                 <article>
                   <h2 className="trails__item--title">
-                    {trail.name}
+                    {corrida.data}
                   </h2>
                   <p className="trails__item--description">
-                    {trail.description}
+                    {corrida.nome}
                   </p>
                   <div className='trails__item--button'>
                     <button
-                      onClick={() => handleOpenModal(trail)}
+                      onClick={() => handleOpenDetails(corrida)}
                     >detalhes</button>
                   </div>
                 </article>
@@ -113,7 +130,7 @@ export default function Trails() {
           })
           }
         </Slider>
-      </ul> : <h1>Carregando trilhas....</h1>
+      </ul> : <h1>Carregando corridas....</h1>
     }
     </>
   );
