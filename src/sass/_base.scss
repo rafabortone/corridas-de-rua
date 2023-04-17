@@ -96,3 +96,17 @@ button {
     background-color: $c-green!important;
   }
 }
+
+section {
+padding: 0 16px;
+}
+
+.slick-initialized {
+
+  .slick-track {
+    padding: 0 20px;
+  }
+  .slick-slide {
+    max-width: 450px;
+  }
+}  

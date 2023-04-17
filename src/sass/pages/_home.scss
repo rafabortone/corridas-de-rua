@@ -4,17 +4,22 @@
   background-color: $c-gray-background;
   width: 100%;
   max-width: 1600px;
-  padding: 0 16px 61px 16px;
 
   @media (min-width: 1024px) { 
-    padding: 50px 28px 61px 28px;
+  }
+
+  .title {
+    font-size: 40px;
+    margin: 60px 0;
+    margin-left: 30px;
   }
 
   &__top {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: -30px;
+    margin-top: 50px;
+    
     @media (min-width: 1024px) {
       flex-direction: row;
       align-items: flex-start;
@@ -23,51 +28,17 @@
     }
   }
 
-  &__title {
-    color: $c-white;
-    position: relative;
-    max-width: 200px;
-    margin-bottom: 60px;
-    @media (min-width: 1024px) {
-      max-width: 280px;
-    }
-    h1 {
-      font: {
-        size: 90px;
-        weight: bold;
-      }
-      line-height: 100px;
-      text-transform: uppercase;
-
-      @media (min-width: 1024px) {
-        font-size: 128px;
-        line-height: 156px;
-        margin-top: 50px;
-      }
-    }
-    
-    h2 {
-      font: {
-        family: 'Acme';
-        size: 60px;
-        weight: normal;
-      }
-      line-height: 90px;
-      position: absolute;
-      bottom: -70px;
-      right: -10px;
-
-      @media (min-width: 1024px) {
-        font-size: 78px;
-        line-height: 99px;
-        right: -20px;
-      }
-    }
-  }
-
   &__banner {
     img {
       width: 100%;
     }
+  }
+
+
+  &__trails {
+    background-color: #0d1d2c;
+    width: 100%;
+    margin: auto;
+    margin-top: 180px;
   }
 }
