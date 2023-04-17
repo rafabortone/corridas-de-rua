@@ -1,0 +1,28 @@
+header{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 24px;
+  background-color: $c-bg-blue;
+  margin-bottom: 61px;
+  article {
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    p {
+      color: $c-white;
+      font: {
+        size: 22px;
+        weight: normal; 
+      }
+      line-height: 27px;
+    }
+    
+    img {
+      width: 48px;
+      margin-left: 10px;
+    }
+  }
+}
