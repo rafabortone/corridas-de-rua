@@ -84,6 +84,8 @@ export default function CorridaDetails() {
               <h5>Bairro: {corrida.bairro}, {corrida.cidade}-{corrida.estado}</h5>
               <h5>referencia: {corrida.referencia}</h5>
               <h5>Distância: {corrida.distancia}</h5>
+              <h5>Categoria: {corrida.categoria}</h5>
+              <h5>Modalidade: {corrida.modalidade}</h5>
             </div>
           </div>
         </div>

@@ -27,7 +27,9 @@ export default function Trails() {
       estado: 'PR',
       referencia: 'Boca maldita',
       imagem: 'https://live.staticflickr.com/8660/16704676381_644f5e0b39_b.jpg',
-      horario: '14:00hrs'
+      horario: '14:00hrs',
+      categoria: 'infantil',
+      modalidade: 'Individual'
     },
     {
       id: 2,
@@ -40,7 +42,9 @@ export default function Trails() {
       estado: 'PR',
       referencia: 'Em frente ao Atacadao',
       imagem: 'https://sportlife.com.br/wp-content/uploads/2014/07/calendario-corridas-agosto-Shutterstock_Images.jpg',
-      horario: '15:00hrs'
+      horario: '15:00hrs',
+      categoria: 'Adulto',
+      modalidade: 'Individual'
     },
     {
       id: 3,
@@ -53,7 +57,9 @@ export default function Trails() {
       estado: 'PR',
       referencia: 'Jardim Botanico',
       imagem: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Jardim_Bot%C3%A2nico_Centro_Curitiba.jpg/1200px-Jardim_Bot%C3%A2nico_Centro_Curitiba.jpg',
-      horario: '11:00hrs'
+      horario: '11:00hrs',
+      categoria: 'Adulto',
+      modalidade: 'Revezamento'
     }
   ]
 
