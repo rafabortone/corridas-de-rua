@@ -77,7 +77,7 @@ export default function Login() {
     if (localStorage.getItem('corrida')) {
       navigate('/corrida-details', { replace: true });
     } else {
-      navigate('/', { replace: true });
+      navigate('/home', { replace: true });
     }
   }
 

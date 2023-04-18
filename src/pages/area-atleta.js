@@ -30,7 +30,7 @@ export default function AreaAtleta() {
 
   function logOut() {
     localStorage.removeItem('profile');
-    navigate('/', { replace: true })
+    navigate('/home', { replace: true })
     setUser('')
   }
 
