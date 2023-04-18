@@ -69,7 +69,7 @@ export default function CorridaDetails() {
       <section className="detail__top">
         <div className="detail__container">
           <figure className="detail__banner">
-            <img src={corrida.imagem} alt='arte digital mostrando três pessoas sobre um notebook gigante, colocando componentes na tela' />
+            <img src={corrida.imagem} />
           </figure>
           <div className="detail__information">
             <article>
@@ -91,7 +91,7 @@ export default function CorridaDetails() {
           inscrito && user != '' ?
             <div>
               <h1>
-                Você já está inscricao nessa corrida
+                Você já está inscrito nessa corrida
               </h1>
             </div>
 
