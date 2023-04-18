@@ -11,6 +11,9 @@ export default function CorridaDetails() {
   const user = localStorage.getItem('profile') ? JSON.parse(localStorage.getItem('profile')) : ''
 
   const [nome, setNome] = useState("");
+  const [inscrito, setInscrito] = useState(false)
+
+  const inscricoes = localStorage.getItem('inscricao') ? JSON.parse(localStorage.getItem('inscricao')) : []
 
   const {
     corrida,
@@ -20,17 +23,23 @@ export default function CorridaDetails() {
 
   useEffect(() => {
 
-    function getInscricao() {
+    function getCorrida() {
       if (corrida.id) {
         localStorage.setItem('corrida', JSON.stringify(corrida))
       }
       if (corrida.length === 0 && localStorage.getItem('corrida')) {
-        console.log('opaaa');
         setCorrida(JSON.parse(localStorage.getItem('corrida')))
       }
-    }
 
-    getInscricao();
+      if (inscricoes.length) {
+        inscricoes.forEach(element => {
+          if (element.corrida.id == corrida.id) {
+            setInscrito(true)
+          }
+        });
+      }
+    }
+    getCorrida();
 
   }, [setCorrida]);
 
@@ -79,30 +88,41 @@ export default function CorridaDetails() {
           </div>
         </div>
         {
-          user != '' ?
-            <div className="inscricao">
-              <h2>Inscrição</h2>
-              <form>
-                <input type="text" name='nome' placeholder="nome" value={user.nome ? user.nome : ''} readOnly />
-                <input type="text" name='ncpf' placeholder="cpf" value={user.cpf ? user.cpf : ''} readOnly />
-                <input type="text" name='email' placeholder="email" value={user.email ? user.email : ''} />
-                <input type="text" name='telefone' placeholder="telefone" value={user.telefone ? user.telefone : ''} />
-                <input type="text" name='data_nascimento' value={user.data_nascimento ? user.data_nascimento : ''} placeholder="data nascimento" readOnly />
-                <input type="text" name='apelido' placeholder="nome que irá na identificação" />
-                <div className="buttons">
-                  <button type="button" className="btn-cancelar">cancelar</button>
-                  <button type="button" className="btn-salvar" onClick={() => setInscription()}>salvar</button>
-                </div>
-              </form>
+          inscrito && user != '' ?
+            <div>
+              <h1>
+                Você já está inscricao nessa corrida
+              </h1>
             </div>
+
             :
-            <div className="message">
-              <h3>Você precisar estar logado no sistema para ter acesso ao formulário de inscrição.</h3>
-              <Link to='/login'>
-                <button className="btn-login">clique aqui para fazer login</button>
-              </Link>
-            </div>
+
+            user != '' ?
+              <div className="inscricao">
+                <h2>Inscrição</h2>
+                <form>
+                  <input type="text" name='nome' placeholder="nome" value={user.nome ? user.nome : ''} readOnly />
+                  <input type="text" name='ncpf' placeholder="cpf" value={user.cpf ? user.cpf : ''} readOnly />
+                  <input type="text" name='email' placeholder="email" value={user.email ? user.email : ''} />
+                  <input type="text" name='telefone' placeholder="telefone" value={user.telefone ? user.telefone : ''} />
+                  <input type="text" name='data_nascimento' value={user.data_nascimento ? user.data_nascimento : ''} placeholder="data nascimento" readOnly />
+                  <input type="text" name='apelido' placeholder="nome que irá na identificação" />
+                  <div className="buttons">
+                    <button type="button" className="btn-cancelar">cancelar</button>
+                    <button type="button" className="btn-salvar" onClick={() => setInscription()}>salvar</button>
+                  </div>
+                </form>
+              </div>
+              :
+              <div className="message">
+                <h3>Você precisar estar logado no sistema para ter acesso ao formulário de inscrição.</h3>
+                <Link to='/login'>
+                  <button className="btn-login">clique aqui para fazer login</button>
+                </Link>
+              </div>
         }
+
+
       </section>
     </div>
 
