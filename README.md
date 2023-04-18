@@ -6,7 +6,7 @@ Protótipo de sistema para controle de inscrições em corridas de rua.
 
 - React, React hooks, Context api, Sass, Interface responsiva
 
-Acesse: https://rafabortone.github.io/trails/ 
+Acesse: https://rafabortone.github.io/corridas/ 
 
 
 ## Available Scripts
