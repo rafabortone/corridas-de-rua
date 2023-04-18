@@ -1,5 +1,5 @@
 Protótipo de sistema para controle de inscrições em corridas de rua.  
-- Home lista as proóximas corridas que irão acontecer. 
+- Home lista as próximas corridas que irão acontecer. 
 - Detalhes da corrida lista todas as informações da corrida selecionada.
 - Formulário de inscrição só aparece se o usuário estiver logado e se ainda não se inscreveu na corrida selecionada.
 - Area do atleta lista as inscrições realizadas podendo o usuário cancelar a inscrição.
