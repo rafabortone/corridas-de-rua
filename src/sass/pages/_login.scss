@@ -1,0 +1,18 @@
+.login {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-gray-background;
+  width: 100%;
+  height: 100vh;
+  max-width: 1600px;
+  padding-bottom: 30px;
+
+  form {
+    background-color: $c-white;
+    padding: 30px;
+    border-radius: 10px;
+  }
+}

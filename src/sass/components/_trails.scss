@@ -18,7 +18,7 @@
     margin-right: 28px;
 
     @media (min-width:500px) {
-      max-width: 370px;
+      max-width: 315px;
     }
 
     &:hover {
@@ -35,6 +35,35 @@
       width: 100%;
       display: flex;
       justify-content: flex-end;
+
+      button {
+        background-color: $c-green;
+        color: $c-bg-blue;
+        cursor: pointer;
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: {
+          style: none;
+          radius: 10px;
+        };
+        font: {
+          size: 18px;
+          weight: 600;
+        };
+        transition: 0.3s;
+        &:hover {
+          background-color: darken($c-green, $amount: 5);
+        }
+        @media (min-width: 1024px) {
+          font-size: 24px;
+          height: 60px;
+          max-width: 179px;
+          border-radius: 20px;
+        }
+      }
     }
 
     &--image {
@@ -77,4 +106,6 @@
       max-width: 283px;
     }
   }
+
+  
 }

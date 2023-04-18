@@ -2,27 +2,24 @@ import React, { createContext, useState } from "react";
 
 export const AppContext = createContext();
 
-const AppContextProvider = ({children}) => {
-  const[trailsList, setTrailsList] = useState([]);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [trail, setTrail] = useState([]);
-  const [grade, setGrade] = useState([]);
-  const [subscription, setSubscription] = useState([]);
+const AppContextProvider = ({ children }) => {
+  const [corridaList, setCorridaList] = useState([]);
+  const [corrida, setCorrida] = useState([]);
+  const [inscricao, setInscricao] = useState([]);
+  const [user, setUser] = useState([]);
 
 
   return (
-    <AppContext.Provider 
+    <AppContext.Provider
       value={{
-        trailsList,
-        setTrailsList,
-        modalVisible,
-        setModalVisible,
-        trail,
-        setTrail,
-        grade,
-        setGrade,
-        subscription,
-        setSubscription
+        corridaList,
+        setCorridaList,
+        corrida,
+        setCorrida,
+        inscricao,
+        setInscricao,
+        user,
+        setUser
       }}
     >
       {children}

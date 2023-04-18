@@ -1,9 +1,10 @@
-import Header from "../components/header";
 import bannerTop from '../images/banner-home.png'
 import Trails from '../components/trails';
-import Modal from "../components/modal";
 
 export default function Home() {
+
+
+  localStorage.removeItem('corrida')
   return (
     <div className="home" aria-hidden="true">
       <section className="home__top">
@@ -13,7 +14,7 @@ export default function Home() {
       </section>
       <h2 className="title">PRÓXIMAS CORRIDAS</h2>
       <section className="home__trails">
-        
+
         <Trails />
       </section>
     </div>
