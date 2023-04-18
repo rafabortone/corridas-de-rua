@@ -41,21 +41,23 @@ export default function Login() {
   ]
 
   function handleLogin() {
+    let found = false;
     if (login != '' && senha != '') {
       users.forEach(item => {
         if (item.login == login && item.senha == senha) {
-          setUsuario(item)
-
-          setUser(item)
-          localStorage.setItem('profile', JSON.stringify(item))
-
-          if (localStorage.getItem('corrida')) {
-            navigate('/corrida-details', { replace: true });
-          } else {
-            navigate('/', { replace: true });
-          }
+          found = true
+          setUsusarioValues(item)
+          return
         }
       })
+
+      if (!found) {
+        Swal.fire(
+          'Atenção!',
+          'Usuário não encontrado',
+          'error'
+        )
+      }
 
     } else {
       Swal.fire(
@@ -63,6 +65,19 @@ export default function Login() {
         'Preencha todos os campos',
         'warning'
       )
+    }
+  }
+
+  function setUsusarioValues(user) {
+    setUsuario(user)
+
+    setUser(user)
+    localStorage.setItem('profile', JSON.stringify(user))
+
+    if (localStorage.getItem('corrida')) {
+      navigate('/corrida-details', { replace: true });
+    } else {
+      navigate('/', { replace: true });
     }
   }
 

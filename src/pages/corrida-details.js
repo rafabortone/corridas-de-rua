@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AppContext } from '../context/AppContext';
 import Swal from 'sweetalert2';
 import { Link } from "react-router-dom";
@@ -15,21 +15,40 @@ export default function CorridaDetails() {
   const {
     corrida,
     setCorrida,
+    setInscricao
   } = useContext(AppContext);
 
-  if (corrida.id) {
-    localStorage.setItem('corrida', JSON.stringify(corrida))
-  }
+  useEffect(() => {
 
-  if (corrida.length === 0 && localStorage.getItem('corrida')) {
-    setCorrida(JSON.parse(localStorage.getItem('corrida')))
-  }
+    function getInscricao() {
+      if (corrida.id) {
+        localStorage.setItem('corrida', JSON.stringify(corrida))
+      }
+      if (corrida.length === 0 && localStorage.getItem('corrida')) {
+        console.log('opaaa');
+        setCorrida(JSON.parse(localStorage.getItem('corrida')))
+      }
+    }
+
+    getInscricao();
+
+  }, [setCorrida]);
 
   function setInscription() {
+
+    let dados = {
+      id: corrida.id,
+      corrida_id: corrida.id,
+      usuario_id: user.id,
+      numero_inscricao: parseInt(Math.random() * 200),
+      corrida: corrida,
+    }
+    setInscricao(current => [...current, dados]);
+
     Swal.fire(
       'Sucesso!',
       'inscrição realizada com sucesso',
-      'sucess'
+      'success'
     ).then(function () {
       navigate('/area-atleta', { replace: true });
     });
