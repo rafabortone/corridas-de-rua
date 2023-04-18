@@ -36,9 +36,6 @@ export default function Header() {
       <nav>
         <ul>
           <li><Link to='/'>home</Link></li>
-          <li>corridas</li>
-          <li>duvidas</li>
-          <li>contato</li>
         </ul>
         {
           user == '' ? <article>
