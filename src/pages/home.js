@@ -9,7 +9,7 @@ export default function Home() {
     <div className="home" aria-hidden="true">
       <section className="home__top">
         <figure className="home__banner">
-          <img src={bannerTop} alt='arte digital mostrando três pessoas sobre um notebook gigante, colocando componentes na tela' />
+          <img src={bannerTop} />
         </figure>
       </section>
       <h2 className="title">PRÓXIMAS CORRIDAS</h2>

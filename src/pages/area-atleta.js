@@ -71,7 +71,7 @@ export default function AreaAtleta() {
       <h1>Area do atleta</h1>
       <section className="account__top">
         <figure className="account__profile-icon">
-          <img src={profileIcon} alt='arte digital mostrando três pessoas sobre um notebook gigante, colocando componentes na tela' />
+          <img src={profileIcon} />
         </figure>
         <ul className="account__menu">
           <li>Inscrições</li>
