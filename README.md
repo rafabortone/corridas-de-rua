@@ -14,6 +14,18 @@ Pra logar no sistema:
 Acesse: https://rafabortone.github.io/corridas/ 
 
 
+![Alt text](corridas-home.png)
+
+![Alt text](details-deslogado.png)
+
+![Alt text](alert-inscricao.png)
+
+![Alt text](area-usuario.png)
+
+![Alt text](alert-delete.png)
+
+![Alt text](details-inscrito.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
