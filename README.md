@@ -5,6 +5,7 @@ Protótipo de sistema para controle de inscrições em corridas de rua.
 - Area do atleta lista as inscrições realizadas podendo o usuário cancelar a inscrição.
 
 - React, React hooks, Context api, Sass, Interface responsiva
+- Controle de acesso, controle de estados do sistema. 
 
 Pra logar no sistema:
 - usuário: rafabortone;
